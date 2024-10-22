@@ -88,6 +88,7 @@ about the infection that you have infected: "§4. You are INFECTED!!"
 ## Known issues
 - Optimization (an eternal problem)
 - Level potion effect not work
+- On some versions there are no comments in the config
 
 ## Zombie support
 - An ordinary zombie
