@@ -41,48 +41,45 @@ this.period = this.config.getInt("period") * 20;
 
 ### Example settings
 ```yaml
-# IF THE COMMENTS ARE NOT VISIBLE, OPEN THIS https://github.com/Kredwi/ZombiesInfection
+# IF COMMENTS NOT VISIBLE OPEN THIS https://github.com/Kredwi/ZombiesInfection
 
 config_version: 1
 
-#
-Debug debugging mode: false 
+# Debug mode
+debug: false 
 
-# Duration of the potion in seconds (n * 20 cycles)
-duration of the potion: 60 
+# Potion duration in seconds (n * 20 ticks)
+potion_duration: 60
 
-#
-The potion's action level: 1 
+# Number of times to apply the effect
+from_effect: 5
 
-# Number of uses of the effect
-of the potion: 5
-
-# Delay in server clock cycles before the first repetition (n* 20)
+# Delay in server ticks before executing the first repeat (n * 20)
 delay: 5 
 
-# Period in task server ticks (n * 20)
+# Period in server ticks of the task (n * 20)
 period: 5
 
-# Enable a random time range to apply the random_time_from_range effect
-:
-enable: true
- # The range in seconds from which you can select a random time
-range: 5 
- # The range in seconds with which you can select a random time interval
-up to: 10
+# Enable random time range for effect application
+random_time_from_range:
+ enable: true
+ # Range in seconds from which to pick a random time
+ range_from: 5 
+ # Range in seconds to which to pick a random time
+ range_to: 10
  
-# Messages for
-messages about various events:
-# Message about the successful restart of the plugin
- plugin_reload: "§2 Plugin was successfully reloaded"
-# Insufficient permissions, message
-no_permission: "§You do not have permissions"
-# Missing message
-of the no_command_args subcommand: "§cUsage: /zi <subcommand>"
-# Invalid message
-of the no_found_command command: "§C Command not found"
-# Message
-about the infection that you have infected: "§4. You are INFECTED!!"
+# Messages for different events
+messages:
+ # Plugin reload success message
+ plugin_reload: "§2The plugin has been successfully reloaded" 
+ # Insufficient permissions message
+ no_permission: "§cYou don't have permission" 
+ # Missing subcommand message
+ no_command_args: "§cUsage: /zi <subcommand>" 
+ # Invalid command message
+ no_found_command: "§cThe command was not found" 
+ # Infection message
+ you_infected: "§4§lYOU INFECTED!!"
 ```
 
 ## Known issues
