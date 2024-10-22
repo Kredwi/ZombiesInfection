@@ -6,8 +6,8 @@ The plugin adds an infection to your server, if a player is attacked by a zombie
 - `/zombiesinfection reload` - Reload the plugin
 
 ## Resolution
-- `zombiesinfection.reload' - Gives the player the right to reload your plugin. (default: op)
-- "zombiesinfection.effect" - If you want the player not to receive any effects, then remove this permission from him. (default: true)
+- `zombiesinfection.reload` - Gives the player the right to reload your plugin. (default: op)
+- `zombiesinfection.effect` - If you want the player not to receive any effects, then remove this permission from him. (default: true)
 
 ## CONFIG
 
@@ -26,11 +26,11 @@ this.period = this.config.getInt("period") * 20;
 - `potion_level` - The potion level that is issued
 - `from_effect` - after what time the effect will be given (the higher the value, the longer it will be stored in **HashMap**)
 - `delay` and `period' - read [HERE](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/scheduler/BukkitScheduler.html#runTaskTimer(org.bukkit.plugin.Plugin,java.lang.Runnable,long,long))
-- "random_time_from_range" is a sector for working with the number selection area
-- - "enable" - enable this selector *(if it is disabled, the time will be counted from "from_effect`)*
+- `random_time_from_range` is a sector for working with the number selection area
+- - `enable` - enable this selector *(if it is disabled, the time will be counted from "from_effect`)*
 - - `range_from` - the minimum value for the time
 - - `range_to` - the maximum value for the time
-- "messages" is a sector with messages from the plugin (not a *debugging* message).
+- `messages` is a sector with messages from the plugin (not a *debugging* message).
 - - `plugin_reload` is a message when restarting the plugin
 - - "no_permission" is a message when the player does not have rights to participate in the team.
 - - `no_command_args` is a message when a player enters a command without a nested command
