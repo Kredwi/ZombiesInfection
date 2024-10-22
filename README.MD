@@ -2,6 +2,8 @@
 
 The plugin adds an infection to your server, if a player is attacked by a zombie, then after a while the player gets the effect of poisoning.
 
+**Spigot/Paper 1.12.2 - 1.21.1**
+
 ## Commands
 - `/zombiesinfection reload` - Reload the plugin
 
@@ -25,17 +27,17 @@ this.period = this.config.getInt("period") * 20;
 - `potion_duration` - The duration of the potion that is given
 - `potion_level` - The potion level that is issued
 - `from_effect` - after what time the effect will be given (the higher the value, the longer it will be stored in **HashMap**)
-- `delay` and `period' - read [HERE](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/scheduler/BukkitScheduler.html#runTaskTimer(org.bukkit.plugin.Plugin,java.lang.Runnable,long,long))
+- `delay` and `period` - read [HERE](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/scheduler/BukkitScheduler.html#runTaskTimer(org.bukkit.plugin.Plugin,java.lang.Runnable,long,long))
 - `random_time_from_range` is a sector for working with the number selection area
-- - `enable` - enable this selector *(if it is disabled, the time will be counted from "from_effect`)*
+- - `enable` - enable this selector *(if it is disabled, the time will be counted from `from_effect`)*
 - - `range_from` - the minimum value for the time
 - - `range_to` - the maximum value for the time
 - `messages` is a sector with messages from the plugin (not a *debugging* message).
 - - `plugin_reload` is a message when restarting the plugin
-- - "no_permission" is a message when the player does not have rights to participate in the team.
+- - `no_permission` is a message when the player does not have rights to participate in the team.
 - - `no_command_args` is a message when a player enters a command without a nested command
 - - `no_found_command` is a message when the nested command is not found
-- - "you_infected" is a message when the player is infected and the timer is running
+- - `you_infected` is a message when the player is infected and the timer is running
 
 ### Example settings
 ```yaml
