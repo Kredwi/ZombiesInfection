@@ -1,0 +1,39 @@
+# IF COMMENTS NOT VISIBLE OPEN THIS https://github.com/Kredwi/ZombiesInfection
+
+config_version: 1
+
+# Debug mode
+debug: false 
+
+# Potion duration in seconds (n * 20 ticks)
+potion_duration: 60
+
+# Number of times to apply the effect
+from_effect: 5
+
+# Delay in server ticks before executing the first repeat (n * 20)
+delay: 5 
+
+# Period in server ticks of the task (n * 20)
+period: 5
+
+# Enable random time range for effect application
+random_time_from_range:
+ enable: true
+ # Range in seconds from which to pick a random time
+ range_from: 5 
+ # Range in seconds to which to pick a random time
+ range_to: 10
+ 
+# Messages for different events
+messages:
+ # Plugin reload success message
+ plugin_reload: "§2The plugin has been successfully reloaded" 
+ # Insufficient permissions message
+ no_permission: "§cYou don't have permission" 
+ # Missing subcommand message
+ no_command_args: "§cUsage: /zi <subcommand>" 
+ # Invalid command message
+ no_found_command: "§cThe command was not found" 
+ # Infection message
+ you_infected: "§4§lYOU INFECTED!!"

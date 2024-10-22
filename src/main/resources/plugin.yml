@@ -1,0 +1,20 @@
+name: ZombiesInfection
+version: 0.1.0
+api-version: 1.13
+main: ru.kredwi.zombiesinfection.ZombiesInfection
+Author: Kredwi
+description: Issues an infection to players from zombies in the area of a given time
+website: https://new.kredwi.ru
+commands:
+  zombiesinfection:
+    description: "The main command for the plugin"
+    usage: /<command> [reload]
+    permission: zombiesinfection.use
+    aliases: [zombiesinfect, zi]
+permissions:
+  zombiesinfection.reload:
+    description: "Permission to reload the plugin configuration file"
+    default: op
+  zombiesinfection.effect:
+    description: "Permission to receive an infection by the effect"
+    default: true
