@@ -149,6 +149,7 @@ messages:
 ## Known issues
 - Optimization (an eternal problem)
 - Level potion effect not work
+- The timer is updated only when a player is added to the **HashMap**.
 
 ## Zombie support
 - An ordinary zombie
