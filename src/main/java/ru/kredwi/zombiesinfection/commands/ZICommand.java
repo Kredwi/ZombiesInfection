@@ -8,41 +8,34 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.Plugin;
 
-import ru.kredwi.zombiesinfection.PlayerInfectionHandler;
+import ru.kredwi.zombiesinfection.files.ZIConfig;
+import ru.kredwi.zombiesinfection.utils.ConsoleWriter;
 
-public class MainCommand implements CommandExecutor, TabCompleter {
+public class ZICommand implements CommandExecutor, TabCompleter {
 
+	private final ConsoleWriter console;
 	private Plugin plugin = null;
-	private PlayerInfectionHandler infectionHandler = null;
 	
-	public MainCommand(Plugin plugin, PlayerInfectionHandler infectionHandler) {
+	public ZICommand(Plugin plugin, ConsoleWriter console) {
 		this.plugin = plugin;
-		this.infectionHandler = infectionHandler;
+		this.console = console;
 	}
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		ConfigurationSection messages = plugin.getConfig().getConfigurationSection("messages");
+		
 		if (!sender.hasPermission("zombiesinfection.reload")) {
-			
-			sender.sendMessage(messages.getString("no_permission"));
-			
+			sender.sendMessage(ZIConfig.NO_PERMISSION.asString());
 		} else if (1 > args.length) {
-			
-			sender.sendMessage(messages.getString("no_command_args"));
-			
-		} else if (args[0].equals("reload")) {
-			
+			sender.sendMessage(String.format(ZIConfig.NO_COMMAND_ARGS.asString(), label));
+		} else if (args[0].equalsIgnoreCase("reload")) {
 			plugin.reloadConfig();
-			infectionHandler.updateVariable();
-			
-			sender.sendMessage(messages.getString("plugin_reload"));
-			
+			sender.sendMessage(ZIConfig.PLUGIN_RELOAD.asString());
+			console.writeInfoDebug(ZIConfig.PLUGIN_RELOAD.asString());
 		} else {
-			sender.sendMessage(messages.getString("no_found_command"));
+			sender.sendMessage(ZIConfig.NO_FOUND_COMMAND.asString());
 		}
 		return true;
 	}
