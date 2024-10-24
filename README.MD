@@ -7,7 +7,7 @@ The plugin adds an infection to your server, if a player is attacked by a zombie
 ## Commands
 - `/zombiesinfection reload` - Reload the plugin
 
-## Resolution
+## Permissions
 - `zombiesinfection.reload` - Gives the player the right to reload your plugin. (default: op)
 - `zombiesinfection.effect` - If you want the player not to receive any effects, then remove this permission from him. (default: true)
 
