@@ -22,7 +22,7 @@ return number * 20;
 ```
 
 - `debug` - Enables debugging mode, it outputs additional information to the console, which may be useless
-- `if-player-infected' - If the player is infected
+- `if-player-infected` - If the player is infected
   - `message` - Enable a message every time a player is hit and he is infected
   - `play-sound` - Turn on the sound playback every time a player is beaten, and at the same time he is infected
   - `update-timer` - Enable timer update every time
