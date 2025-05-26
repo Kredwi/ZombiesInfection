@@ -2,6 +2,7 @@ package ru.kredwi.zombiesinfection.handler;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -11,9 +12,11 @@ import ru.kredwi.zombiesinfection.utils.ConsoleWriter;
 public class PotionHandler {
 	
 	private ConsoleWriter console;
+	private Plugin plugin;
 	
-	public PotionHandler(ConsoleWriter console) {
+	public PotionHandler(Plugin plugin, ConsoleWriter console) {
 		this.console = console;
+		this.plugin = plugin;
 	}
 	
 	public void getPotionsForPlayer(Player player) {
@@ -36,13 +39,15 @@ public class PotionHandler {
 		int potionDuration = ZIConfig.POTION_GIVED_SECTION.asSection().getConfigurationSection(potionKey).getInt("potion-duration") * 20;
 		int potionLevel = 1;
 		
-		if (!player.hasPotionEffect(potion)) {
-			player.addPotionEffect(new PotionEffect(potion, potionDuration, potionLevel));
-		} else {
-			PotionEffect currentPotion = player.getPotionEffect(potion);
-			player.removePotionEffect(potion);
-			player.addPotionEffect(new PotionEffect(potion, currentPotion.getDuration() + potionDuration, potionLevel));
-		}
+		Bukkit.getScheduler().runTask(plugin, () -> {
+			if (!player.hasPotionEffect(potion)) {
+				player.addPotionEffect(new PotionEffect(potion, potionDuration, potionLevel));
+			} else {
+				PotionEffect currentPotion = player.getPotionEffect(potion);
+				player.removePotionEffect(potion);
+				player.addPotionEffect(new PotionEffect(potion, currentPotion.getDuration() + potionDuration, potionLevel));
+			}
+		});
 			
 		console.writeInfoDebug("Potion %s is given to player %s", potion.getName(), player.getName());
 	}

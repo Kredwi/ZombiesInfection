@@ -2,7 +2,7 @@
 
 The plugin adds an infection to your server, if a player is attacked by a zombie, then after a while the player gets the effect of poisoning.
 
-**Spigot/Paper 1.12.2 - 1.21.3**
+**Spigot/Paper 1.12.2 - 1.21.5**
 
 ## Commands
 - `/zombiesinfection reload` - Reload the plugin

@@ -12,12 +12,13 @@ import ru.kredwi.zombiesinfection.utils.ConsoleWriter;
 /**
  * Hello world!
  * First JavaDocs !!
- * 2024
+ * 2024 - 2025
  */
 public class ZombiesInfection extends JavaPlugin
 {
 	
 	private final ConsoleWriter console = new ConsoleWriter();
+	private PlayerInfectionHandler infectionDamage = null;
 	
 	@Override
 	public void onEnable() {
@@ -36,7 +37,7 @@ public class ZombiesInfection extends JavaPlugin
 			}
 		}
 		
-		PlayerInfectionHandler infectionDamage = new PlayerInfectionHandler(this);
+		this.infectionDamage = new PlayerInfectionHandler(this);
 		
 		PluginCommand mainCommand = getCommand("zombiesinfection");
 		ZICommand reloadCommandExecutor = new ZICommand(this, console);
@@ -45,5 +46,12 @@ public class ZombiesInfection extends JavaPlugin
 		mainCommand.setTabCompleter(reloadCommandExecutor);
 		
 		getServer().getPluginManager().registerEvents(new EntityDamage(infectionDamage), this);
+	}
+	
+	@Override
+	public void onDisable() {
+		if (infectionDamage != null) {
+			infectionDamage.removeInfectionTimer();
+		}
 	}
 }
